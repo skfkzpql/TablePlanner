@@ -1,0 +1,14 @@
+package com.hyunn.tableplanner.dto.review;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ReviewUpdateRequest {
+    private Long reviewId;
+    private int rating;
+    private String comment;
+}

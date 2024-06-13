@@ -1,4 +1,4 @@
-package com.hyunn.tableplanner.model;
+package com.hyunn.tableplanner.model.types;
 
 public enum UserRole {
     USER,

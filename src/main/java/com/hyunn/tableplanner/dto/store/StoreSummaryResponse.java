@@ -10,6 +10,5 @@ import lombok.NoArgsConstructor;
 public class StoreSummaryResponse {
     private Long id;
     private String name;
-    private String location;
-    private Double averageRating;
+    private Double rating;
 }

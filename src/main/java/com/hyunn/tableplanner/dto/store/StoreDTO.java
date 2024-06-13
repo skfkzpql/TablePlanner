@@ -1,4 +1,4 @@
-package com.hyunn.tableplanner.dto;
+package com.hyunn.tableplanner.dto.store;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

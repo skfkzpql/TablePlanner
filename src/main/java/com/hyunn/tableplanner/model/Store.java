@@ -1,28 +1,54 @@
-// Store.java
-import lombok.Data;
-import jakarta.persistence.*;
-import java.util.List;
+package com.hyunn.tableplanner.model;
 
-@Entity
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "stores")
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "partner_id", nullable = false)
+    private User partner;
+
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false)
     private String location;
 
-    @Column(nullable = false)
+    @Column
     private String description;
-    
-    @ManyToOne
-    @JoinColumn(name = "PARTNER_ID")
-    private Partner partner;
-  
-    @OneToMany(mappedBy = "store")
-    private List<Reservation> reservations;
+
+    @Column
+    private double rating = 0.0;
+
+    @Column
+    private int reviews = 0;
+
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
 }

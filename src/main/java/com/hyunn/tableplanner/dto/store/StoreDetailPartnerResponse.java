@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class StoreDetailPartnerResponse {
     private Long id;
+    private String username;
     private String name;
     private String location;
     private String description;

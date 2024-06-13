@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReviewCreateRequest {
-
-    private Long storeId;
+    private Long reservationId;
     private int rating;
     private String comment;
 }

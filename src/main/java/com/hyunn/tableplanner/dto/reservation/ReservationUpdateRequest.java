@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReservationRequest {
-    private Long storeId;
-    private LocalDateTime reservationTime;
+public class ReservationUpdateRequest {
+    private Long id;
+    private LocalDateTime newReservationTime;
 }

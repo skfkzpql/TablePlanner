@@ -1,13 +1,15 @@
 package com.hyunn.tableplanner.repository;
 
-import com.hyunn.tableplanner.model.User;
+import com.hyunn.tableplanner.model.Review;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-import java.util.Optional;
+public interface ReviewRepository extends JpaRepository<Review, Long>, JpaSpecificationExecutor<Review> {
+    Page<Review> findByStoreId(Long storeId, Pageable pageable);
 
-@Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    Optional<User> findByUsername(String username);
-    Optional<User> findByEmail(String email);
+    Page<Review> findByStoreIdAndRatingBetween(Long storeId, int minRating, int maxRating, Pageable pageable);
+
+    Page<Review> findByUserId(Long userId, Pageable pageable);
 }

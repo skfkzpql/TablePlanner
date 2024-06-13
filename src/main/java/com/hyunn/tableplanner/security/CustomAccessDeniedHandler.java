@@ -1,2 +1,4 @@
-package com.hyunn.tableplanner.security;public class CustomAccessDeniedHandler {
+package com.hyunn.tableplanner.security;
+
+public class CustomAccessDeniedHandler {
 }
